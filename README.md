@@ -1,49 +1,53 @@
 # Ex02 Django ORM Web Application
-# Date: 22/04/2025
-# AIM
-To develop a Django application to store and retrieve data from a bank loan database using Object Relational Mapping(ORM).
+## Date: 15.04.2025
 
-# ENTITY RELATIONSHIP DIAGRAM
+## AIM
+To develop a Django application to store and retrieve data from a Movies Database using Object Relational Mapping(ORM).
+
+## ENTITY RELATIONSHIP DIAGRAM
+![image](https://github.com/user-attachments/assets/e477b62c-687e-496d-af61-5a9db4d4d5e6)
+
+
 ## DESIGN STEPS
-## STEP 1:
+
+### STEP 1:
 Clone the problem from GitHub
 
-## STEP 2:
+### STEP 2:
 Create a new app in Django project
 
-## STEP 3:
+### STEP 3:
 Enter the code for admin.py and models.py
 
-## STEP 4:
+### STEP 4:
 Execute Django admin and create details for 10 books
 
-# PROGRAM
-    from django.db import models                                                                                                                                                                                          
-    from django.contrib import admin                                                                                                                                                                                      
-    class footballplayer (models.Model):                                                                                                                                                                                
-    
-        name=models.CharField(max_length=20)                                                                                                                                                                              
-        weight=models.IntegerField()                                                                                                                                                                                      
-        players_id=models.CharField(max_length=100)                                                                                                                                                                       
-        age=models.IntegerField()                                                                                                                                                                                         
-        members=models.CharField(max_length=20)
+## PROGRAM
+```
+admin.py
 
-    class footballplayerAdmin(admin.ModelAdmin):                                                                                                                                                                         
-    
-        list_display=('name','players_id','weight','age','members')
+from django.contrib import admin 
+from .models import Movie_DB,Movie_DBAdmin 
+admin.site.register(Movie_DB,Movie_DBAdmin)
 
-    admin.py
+models.py
 
-        from django.contrib import admin                                                                                                                                                                                         
-        from django.contrib import admin                                                                                                                                                                                                   
-        admin.site.register(footballplayer,footballplayerAdmin)
+from django.db import models 
+from django.contrib import admin 
+class  Movie_DB(models.Model): 
+    Movie_ID = models.CharField(max_length=20, primary_key=True) 
+    Title = models.CharField(max_length=100) 
+    Genre = models.CharField(max_length=20) 
+    Rating = models.IntegerField( ) 
+    Language = models.CharField(max_length=15) 
+    Release_Date = models.DateField( ) 
 
+class Movie_DBAdmin(admin.ModelAdmin): 
+    list_display = ('Movie_ID', 'Title', 'Genre', 'Rating', 'Language', 'Release_Date') 
+```
 
+## OUTPUT
+![image](https://github.com/user-attachments/assets/9ea69db0-256b-424e-8c26-a3e48939a45e)
 
-# OUTPUT
-
-![image](https://github.com/user-attachments/assets/2f37dddd-539c-4843-8d45-0fce815dfcf2)
-
-
-# RESULT
-Thus the program for creating a database using ORM hass been executed successfully
+## RESULT
+Thus the program for creating movies database using ORM hass been executed successfully
